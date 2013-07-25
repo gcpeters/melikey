@@ -1,7 +1,8 @@
 define(function (require) {
 	'use strict';
 
-	var App = new Backbone.Marionette.Application(),
+	var Backbone = require('backbone'),
+		App = new Backbone.Marionette.Application(),
 		regions = {
 			main: '#mainRegion'
 		};

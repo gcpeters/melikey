@@ -10,7 +10,9 @@
 
 	"dependencies": {
 		"backbone": "~1.0.0",
-		"underscore": "~1.5.1"
+		"backbone.marionette": "~1.0.4",
+		"underscore": "~1.5.1",
+		"jquery": "~2.0.3"
 	},
 
 	"devDependencies": {
