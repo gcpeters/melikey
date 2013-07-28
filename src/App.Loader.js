@@ -1,11 +1,10 @@
-//
 (function (global) {
 	'use strict';
 
 	require.config({
 		waitSeconds: 20,
 		paths: {
-			jquery: '//ajax.googleapis.com/ajax/lib/jquery/2.0.0/jquery.min',
+			jquery: '//code.jquery.com/jquery-2.0.3.min',
 			underscore: '../lib/underscore/underscore-min',
 			backbone: '../lib/backbone/backbone-min',
 			marionette: '../lib/marionette/backbone.marionette.min',
@@ -30,10 +29,24 @@
 		}
 	});
 
-	require(['domReady!', './App'], function (doc, App) {
+	require(['domReady!', './App', 'backbone', 'underscore'], function (doc, App, backbone, _) {
 		try {
+			var View = new backbone.Marionette.ItemView.extend({
+				className: 'foo',
+				template: '<h1>Hello WOrld</h1>',
+				initialize: function (options) {
+					_.bindAll(this);
+				},
+				render: function () {
+					console.log('on render');
+					// this.el.appendChild(this.template());
+				}
+			});
+
+			App.start({});
 			global.App = App;
-			global.App.start(ENVIRONMENT);
+			console.dir(View);
+			// App.main.show(new View());
 		} catch (error) {
 			if (require && require.onError) {
 
